@@ -646,14 +646,14 @@ wheels = [
 
 [[package]]
 name = "fframes"
-version = "0.1.0"
-source = { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.0/fframes-0.1.0-cp310-abi3-macosx_15_0_arm64.whl" }
+version = "0.1.1"
+source = { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-macosx_15_0_arm64.whl" }
 resolution-markers = [
     "python_full_version >= '3.14' and platform_machine == 'arm64' and sys_platform == 'darwin'",
     "python_full_version < '3.14' and platform_machine == 'arm64' and sys_platform == 'darwin'",
 ]
 wheels = [
-    { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.0/fframes-0.1.0-cp310-abi3-macosx_15_0_arm64.whl", hash = "sha256:ceb8e5e218bd733ea2625f903268cbe61c6234f3b566f295bb03fdba9265bf05" },
+    { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-macosx_15_0_arm64.whl", hash = "sha256:3c29f1cdaf2d9530875b54d4ce9b2a6bf8ac5a4efec24632a618aa37fa9cb0fc" },
 ]
 
 [package.metadata]
@@ -665,14 +665,14 @@ provides-extras = ["dev"]
 
 [[package]]
 name = "fframes"
-version = "0.1.0"
-source = { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.0/fframes-0.1.0-cp310-abi3-manylinux_2_35_aarch64.whl" }
+version = "0.1.1"
+source = { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-manylinux_2_35_aarch64.whl" }
 resolution-markers = [
     "python_full_version >= '3.14' and platform_machine == 'aarch64' and sys_platform == 'linux'",
     "python_full_version < '3.14' and platform_machine == 'aarch64' and sys_platform == 'linux'",
 ]
 wheels = [
-    { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.0/fframes-0.1.0-cp310-abi3-manylinux_2_35_aarch64.whl", hash = "sha256:cd57b97214808015e87eb164f4e4d92817efa924f0504c3306ffae179de49a9d" },
+    { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-manylinux_2_35_aarch64.whl", hash = "sha256:8383cfe65723424392cc30b45d96f8e9d846aecee13a5db9947f1de77d33a1da" },
 ]
 
 [package.metadata]
@@ -684,14 +684,14 @@ provides-extras = ["dev"]
 
 [[package]]
 name = "fframes"
-version = "0.1.0"
-source = { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.0/fframes-0.1.0-cp310-abi3-manylinux_2_35_x86_64.whl" }
+version = "0.1.1"
+source = { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-manylinux_2_35_x86_64.whl" }
 resolution-markers = [
     "python_full_version >= '3.14' and platform_machine == 'x86_64' and sys_platform == 'linux'",
     "python_full_version < '3.14' and platform_machine == 'x86_64' and sys_platform == 'linux'",
 ]
 wheels = [
-    { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.0/fframes-0.1.0-cp310-abi3-manylinux_2_35_x86_64.whl", hash = "sha256:58e9810ef7717dc4d27997ab081cb658144a91520d1387216a3869d9de878b6d" },
+    { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-manylinux_2_35_x86_64.whl", hash = "sha256:3aa76e86a2359ea822dd950918cfbfeb03236cd2aff21f3b5334e9e742ade521" },
 ]
 
 [package.metadata]
@@ -703,14 +703,14 @@ provides-extras = ["dev"]
 
 [[package]]
 name = "fframes"
-version = "0.1.0"
-source = { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.0/fframes-0.1.0-cp310-abi3-win_amd64.whl" }
+version = "0.1.1"
+source = { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-win_amd64.whl" }
 resolution-markers = [
     "python_full_version >= '3.14' and platform_machine == 'AMD64' and sys_platform == 'win32'",
     "python_full_version < '3.14' and platform_machine == 'AMD64' and sys_platform == 'win32'",
 ]
 wheels = [
-    { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.0/fframes-0.1.0-cp310-abi3-win_amd64.whl", hash = "sha256:8cd2fc7c3284a6c2b45d08df294b1c39f40d076ee505b3a350c9337adf28a512" },
+    { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-win_amd64.whl", hash = "sha256:ed031396c5431f80f90663f855686d2e3b1a65608041e47ff988a5b90cd896d7" },
 ]
 
 [package.metadata]
@@ -2523,22 +2523,22 @@ wheels = [
 
 [[package]]
 name = "vis-reel"
-version = "0.1.1"
+version = "0.1.2"
 source = { virtual = "." }
 dependencies = [
-    { name = "fframes", version = "0.1.0", source = { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.0/fframes-0.1.0-cp310-abi3-macosx_15_0_arm64.whl" }, marker = "platform_machine == 'arm64' and sys_platform == 'darwin'" },
-    { name = "fframes", version = "0.1.0", source = { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.0/fframes-0.1.0-cp310-abi3-manylinux_2_35_aarch64.whl" }, marker = "platform_machine == 'aarch64' and sys_platform == 'linux'" },
-    { name = "fframes", version = "0.1.0", source = { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.0/fframes-0.1.0-cp310-abi3-manylinux_2_35_x86_64.whl" }, marker = "platform_machine == 'x86_64' and sys_platform == 'linux'" },
-    { name = "fframes", version = "0.1.0", source = { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.0/fframes-0.1.0-cp310-abi3-win_amd64.whl" }, marker = "platform_machine == 'AMD64' and sys_platform == 'win32'" },
+    { name = "fframes", version = "0.1.1", source = { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-macosx_15_0_arm64.whl" }, marker = "platform_machine == 'arm64' and sys_platform == 'darwin'" },
+    { name = "fframes", version = "0.1.1", source = { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-manylinux_2_35_aarch64.whl" }, marker = "platform_machine == 'aarch64' and sys_platform == 'linux'" },
+    { name = "fframes", version = "0.1.1", source = { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-manylinux_2_35_x86_64.whl" }, marker = "platform_machine == 'x86_64' and sys_platform == 'linux'" },
+    { name = "fframes", version = "0.1.1", source = { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-win_amd64.whl" }, marker = "platform_machine == 'AMD64' and sys_platform == 'win32'" },
     { name = "vis-agent" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "fframes", marker = "platform_machine == 'arm64' and sys_platform == 'darwin'", url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.0/fframes-0.1.0-cp310-abi3-macosx_15_0_arm64.whl" },
-    { name = "fframes", marker = "platform_machine == 'aarch64' and sys_platform == 'linux'", url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.0/fframes-0.1.0-cp310-abi3-manylinux_2_35_aarch64.whl" },
-    { name = "fframes", marker = "platform_machine == 'x86_64' and sys_platform == 'linux'", url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.0/fframes-0.1.0-cp310-abi3-manylinux_2_35_x86_64.whl" },
-    { name = "fframes", marker = "platform_machine == 'AMD64' and sys_platform == 'win32'", url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.0/fframes-0.1.0-cp310-abi3-win_amd64.whl" },
+    { name = "fframes", marker = "platform_machine == 'arm64' and sys_platform == 'darwin'", url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-macosx_15_0_arm64.whl" },
+    { name = "fframes", marker = "platform_machine == 'aarch64' and sys_platform == 'linux'", url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-manylinux_2_35_aarch64.whl" },
+    { name = "fframes", marker = "platform_machine == 'x86_64' and sys_platform == 'linux'", url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-manylinux_2_35_x86_64.whl" },
+    { name = "fframes", marker = "platform_machine == 'AMD64' and sys_platform == 'win32'", url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-win_amd64.whl" },
     { name = "vis-agent", specifier = ">=0.5.7" },
 ]
 

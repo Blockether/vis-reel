@@ -47,6 +47,7 @@ def test_render_encodes_every_frame(starter, tmp_path):
     r = v.render(starter, out)
     assert (r.start_frame, r.end_frame, r.frames) == (0, 48, 48)
     assert out.stat().st_size > 1000
+    assert r.size_bytes == out.stat().st_size
     again = v.render(starter, out)
     assert again.frames == 48 and out.stat().st_size > 1000
 

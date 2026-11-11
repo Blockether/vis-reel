@@ -31,7 +31,7 @@ await reel.inspect("videos/intro.py")                          # missing media, 
 await reel.render("videos/intro.py", "out/intro.mp4", draft=True)
 ```
 
-The skill `vis-reel/fframes` tells the agent how to write a video script.
+The extension prompt tells the agent how to write a video script.
 
 A video script is a Python file that ends with `fframes.cli(video)`. Each tool runs it in a new
 process with the first interpreter of: the `python=` argument, `$FFRAMES_PYTHON`, the nearest

@@ -1,22 +1,21 @@
 [project]
 name = "vis-reel"
-version = "0.1.1"
+version = "0.1.2"
 description = "Make videos in Python with fframes: scaffold, inspect, render frames and video."
 keywords = ["video", "fframes"]
 requires-python = ">=3.12"
 dependencies = [
   "vis-agent>=0.5.7",
   # Prebuilt fframes wheels from fframes-python, with FFmpeg inside. No Intel Mac wheel.
-  "fframes @ https://github.com/Blockether/fframes-python/releases/download/v0.1.0/fframes-0.1.0-cp310-abi3-macosx_15_0_arm64.whl ; sys_platform == 'darwin' and platform_machine == 'arm64'",
-  "fframes @ https://github.com/Blockether/fframes-python/releases/download/v0.1.0/fframes-0.1.0-cp310-abi3-manylinux_2_35_x86_64.whl ; sys_platform == 'linux' and platform_machine == 'x86_64'",
-  "fframes @ https://github.com/Blockether/fframes-python/releases/download/v0.1.0/fframes-0.1.0-cp310-abi3-manylinux_2_35_aarch64.whl ; sys_platform == 'linux' and platform_machine == 'aarch64'",
-  "fframes @ https://github.com/Blockether/fframes-python/releases/download/v0.1.0/fframes-0.1.0-cp310-abi3-win_amd64.whl ; sys_platform == 'win32' and platform_machine == 'AMD64'",
+  "fframes @ https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-macosx_15_0_arm64.whl ; sys_platform == 'darwin' and platform_machine == 'arm64'",
+  "fframes @ https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-manylinux_2_35_x86_64.whl ; sys_platform == 'linux' and platform_machine == 'x86_64'",
+  "fframes @ https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-manylinux_2_35_aarch64.whl ; sys_platform == 'linux' and platform_machine == 'aarch64'",
+  "fframes @ https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-win_amd64.whl ; sys_platform == 'win32' and platform_machine == 'AMD64'",
 ]
 
 [tool.vis]
 category = "tools"
 source_paths = ["src"]
-skills = ["skills/fframes"]
 
 [tool.ruff]
 line-length = 100

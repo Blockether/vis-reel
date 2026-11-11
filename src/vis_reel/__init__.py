@@ -83,11 +83,13 @@ class Rendered:
     elapsed_seconds: Annotated[float, "Wall time of the render, encoding included"]
     frames: Annotated[int, "end_frame - start_frame"]
     frames_per_second: Annotated[float, "Rendering speed: frames / elapsed_seconds"]
+    size_bytes: Annotated[int, "Size of the video file in bytes"]
 
     def __str__(self) -> str:
         return (
             f"{self.output}: {self.frames} frames {self.width}x{self.height} in "
-            f"{self.elapsed_seconds:.2f} s ({self.frames_per_second:.0f} frames/s)"
+            f"{self.elapsed_seconds:.2f} s ({self.frames_per_second:.0f} frames/s), "
+            f"{self.size_bytes / 1_000_000:.2f} MB"
         )
 
 
@@ -291,6 +293,7 @@ def render(
         elapsed_seconds=elapsed,
         frames=count,
         frames_per_second=count / elapsed if elapsed > 0 else 0.0,
+        size_bytes=Path(d["output"]).stat().st_size,
     )
 
 
