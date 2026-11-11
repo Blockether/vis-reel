@@ -1,5 +1,6 @@
 """End-to-end tests: each call runs a real fframes script in a new process."""
 
+import subprocess
 import sys
 from pathlib import Path
 
@@ -177,9 +178,33 @@ def test_find_python_takes_the_nearest_venv_with_fframes(tmp_path, monkeypatch):
     assert v.find_python(script, "custom-python") == "custom-python"
 
 
-def test_find_python_falls_back_to_this_interpreter(tmp_path, monkeypatch):
+def test_find_python_falls_back_to_an_interpreter_that_has_fframes(tmp_path, monkeypatch):
     monkeypatch.delenv("FFRAMES_PYTHON")
     make_venv(tmp_path, with_fframes=False)
     script = tmp_path / "clip.py"
     script.write_text("")
-    assert v.find_python(script) == sys.executable
+    subprocess.run([v.find_python(script), "-c", "import fframes"], check=True)
+
+
+def test_find_python_takes_the_environment_of_its_own_fframes(tmp_path, monkeypatch):
+    # Vis runs the extension with its shared interpreter and puts the packages of the
+    # extension environment on sys.path, so sys.executable cannot import fframes.
+    monkeypatch.delenv("FFRAMES_PYTHON")
+    env = tmp_path / ".venv-6f2538a7da2a"
+    python = env / ("Scripts/python.exe" if sys.platform == "win32" else "bin/python")
+    python.parent.mkdir(parents=True)
+    python.write_text("")
+    (env / "pyvenv.cfg").write_text("home = /shared/python/bin\n")
+    site = env / (
+        "Lib/site-packages" if sys.platform == "win32" else "lib/python3.14/site-packages"
+    )
+    package = site / "fframes"
+    package.mkdir(parents=True)
+    (package / "__init__.py").write_text("")
+    monkeypatch.setattr(sys, "path", [str(site), *sys.path])
+    monkeypatch.delitem(sys.modules, "fframes", raising=False)
+    monkeypatch.setattr(sys, "executable", str(tmp_path / "shared" / "python3"))
+    script = tmp_path / "project" / "clip.py"
+    script.parent.mkdir()
+    script.write_text("")
+    assert Path(v.find_python(script)) == python

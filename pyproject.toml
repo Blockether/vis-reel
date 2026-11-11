@@ -1,6 +1,6 @@
 [project]
 name = "vis-reel"
-version = "0.1.0"
+version = "0.1.1"
 description = "Make videos in Python with fframes: scaffold, inspect, render frames and video."
 keywords = ["video", "fframes"]
 requires-python = ">=3.12"

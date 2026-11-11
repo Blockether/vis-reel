@@ -8,6 +8,7 @@ interpreter and returns typed results. It has no Vis dependency.
 
 from __future__ import annotations
 
+import importlib.util
 import json
 import os
 import re
@@ -25,6 +26,7 @@ __all__ = [
     "Strip",
     "Timeline",
     "find_python",
+    "own_python",
     "has_fframes",
     "frames",
     "inspect",
@@ -112,9 +114,26 @@ def has_fframes(venv: Path) -> bool:
     return any(any(site.glob("fframes-*.dist-info")) for site in sites)
 
 
+def own_python() -> str:
+    """The interpreter of the environment that holds the fframes this module imports.
+
+    Vis runs extensions with its shared interpreter and puts the packages of the extension
+    environment on ``sys.path``, so ``sys.executable`` alone cannot import fframes.
+    """
+    spec = importlib.util.find_spec("fframes")
+    if spec and spec.origin:
+        for parent in Path(spec.origin).resolve().parents:
+            if (parent / "pyvenv.cfg").is_file():
+                for candidate in (parent / "bin" / "python", parent / "Scripts" / "python.exe"):
+                    if candidate.exists():
+                        return str(candidate)
+                break
+    return sys.executable
+
+
 def find_python(script: Path, python: str | None = None) -> str:
     """The interpreter for ``script``: ``python``, ``$FFRAMES_PYTHON``, the nearest ``.venv``
-    above the script that has fframes, then this interpreter, which has fframes installed."""
+    above the script that has fframes, then the environment of this extension's fframes."""
     if python:
         return python
     if env := os.environ.get("FFRAMES_PYTHON"):
@@ -124,7 +143,7 @@ def find_python(script: Path, python: str | None = None) -> str:
         for candidate in (venv / "bin" / "python", venv / "Scripts" / "python.exe"):
             if candidate.exists() and has_fframes(venv):
                 return str(candidate)
-    return sys.executable
+    return own_python()
 
 
 def run_json(
