@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: ruff + pytest (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-15, ubuntu-22.04, ubuntu-22.04-arm, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@v7
+        with:
+          python-version: "3.13"
+          enable-cache: true
+      # Installs the fframes wheel of this platform, as Vis does when it prepares the extension.
+      - name: Install the declared dependencies
+        run: uv sync --locked
+      - name: Check formatting
+        run: uv run --with ruff ruff format --check .
+      - name: Lint
+        run: uv run --with ruff ruff check .
+      - name: Run the tests
+        run: uv run --with pytest pytest tests -q
+
+  versions:
+    name: One version everywhere
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Check that every version source agrees
+        run: |
+          set -euo pipefail
+          package=$(python3 -c "import tomllib;print(tomllib.load(open('pyproject.toml','rb'))['project']['version'])")
+          registered=$(python3 -c "import re,pathlib;print(re.search('version=\"([^\"]+)\"', pathlib.Path('extension.py').read_text()).group(1))")
+          if [ "$package" != "$registered" ]; then
+            echo "Package version $package disagrees with the registered extension version $registered." >&2
+            exit 1
+          fi
+          echo "Every version source says $package."

@@ -1,0 +1,51 @@
+"""A fframes video. Render it with: python THIS_FILE render -o out.mp4
+
+Other commands: timeline, frame 0s,50%,end -o frames/, strip -o strip.png, inspect.
+"""
+
+import sys
+
+import fframes as ff
+from fframes import Color, Easing, Transform
+
+TITLE = __TITLE__
+
+# Build timelines and templates once, at module level: each frame only fills them in.
+BACKGROUND = ff.timeline(((0, __DURATION__), Color.hex("#0f172a"), Color.hex("#312e81")))
+DOT = ff.timeline(
+    ((0, 1.2), Transform.translate(-300, 0), Transform.translate(0, 0), Easing.spring()),
+)
+FADE = ff.timeline(((0.4, 1.4), 0.0, 1.0, Easing.EASE_OUT))
+
+FRAME = ff.template("""
+<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}"
+     viewBox="0 0 __WIDTH__ __HEIGHT__">
+    <rect width="__WIDTH__" height="__HEIGHT__" fill="{background}"/>
+    <g transform="translate(__CX__ __CY__)">
+        <circle r="80" fill="#f97316" transform="{dot}"/>
+    </g>
+    <text x="__CX__" y="__TY__" text-anchor="middle" font-size="96" fill="#fff"
+          opacity="{fade}">{title}</text>
+</svg>
+""")
+
+
+class Video:
+    fps = __FPS__
+    width = __WIDTH__
+    height = __HEIGHT__
+    duration = __DURATION__
+
+    def render_frame(self, frame: ff.Frame, ctx: ff.Context) -> ff.Svgr:
+        return FRAME(
+            width=ctx.width,
+            height=ctx.height,
+            background=frame.animate(BACKGROUND),
+            dot=frame.animate(DOT),
+            fade=frame.animate(FADE),
+            title=TITLE,
+        )
+
+
+if __name__ == "__main__":
+    sys.exit(ff.cli(Video()))
