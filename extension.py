@@ -440,7 +440,7 @@ vis.register_extension(
     vis.Extension(
         name="vis-reel",
         description="Make videos in Python with fframes: scaffold, inspect, render frames and video.",
-        version="0.1.2",
+        version="0.1.3",
         alias="reel",
         prompt=PROMPT,
         env=("FFRAMES_PYTHON", "TMPDIR"),
