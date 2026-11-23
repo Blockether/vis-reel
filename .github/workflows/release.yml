@@ -27,9 +27,24 @@ jobs:
             echo "Tag $GITHUB_REF_NAME does not match pyproject version $declared." >&2
             exit 1
           fi
-      # The Vis Extension Center publishes this release: Blockether/vis runs
-      # "Publish reviewed extension" daily for first-party extensions.
       - name: Create the release
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh release create "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" --verify-tag --generate-notes --title "$GITHUB_REF_NAME"
+
+      # Start the publication in the Vis Extension Center at once. The schedule in Blockether/vis
+      # also publishes this release, but GitHub starts scheduled runs some hours late.
+      - name: Publish the release in the Vis Extension Center
+        env:
+          GH_TOKEN: ${{ secrets.VIS_EXTENSION_PUBLISH_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::warning::Set the VIS_EXTENSION_PUBLISH_TOKEN secret. Without it, the schedule in Blockether/vis publishes this release some hours later."
+            exit 0
+          fi
+          gh workflow run extension-publish.yml --repo Blockether/vis \
+            -f repository_url="https://github.com/$GITHUB_REPOSITORY" \
+            -f subdirectory="" \
+            -f release_tag="$GITHUB_REF_NAME" \
+            -f revision="$GITHUB_SHA"
