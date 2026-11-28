@@ -2506,7 +2506,7 @@ wheels = [
 
 [[package]]
 name = "vis-agent"
-version = "0.5.13"
+version = "0.6.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "harbor" },
@@ -2516,14 +2516,14 @@ dependencies = [
     { name = "pydantic" },
     { name = "referencing" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/3f/8f/009a005267fc04998afae90bce87e90cec3a82dc9fba267fba9fce10b780/vis_agent-0.5.13.tar.gz", hash = "sha256:19f0b8de0e2bdd3a2de0aa5668fae4274a5d160cd8c2583a22a4ef12df8d0c40", size = 630334, upload-time = "2026-11-11T08:43:07.168Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ea/03/a1b31b7e21ae5ba60539428daef7a80faa0287909b0a6fc5ddc7217f2398/vis_agent-0.6.0.tar.gz", hash = "sha256:69826cd626f59d3b77867451648e097bf1bc5bcbd912506f7c074edb685b66f9", size = 844590, upload-time = "2026-11-28T11:46:33.302Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/6f/ca/5427832c191707e0116e09dc7f057448e0683d1c18300b2206edfccec0b6/vis_agent-0.5.13-py3-none-any.whl", hash = "sha256:46eb878fec47b1503572624ebfa5f5b0d6c35cda4553c5392d5ef1656256112f", size = 434918, upload-time = "2026-11-11T08:43:05.614Z" },
+    { url = "https://files.pythonhosted.org/packages/e9/53/a43a1a20c527638c7dbcf9ece2e85171f1004728b4536d409e14b417bbf3/vis_agent-0.6.0-py3-none-any.whl", hash = "sha256:0d40c3056dff4e5228cc80c37439b9181d5583b8e5156de7be15fb767c1267e9", size = 604083, upload-time = "2026-11-28T11:46:31.954Z" },
 ]
 
 [[package]]
 name = "vis-reel"
-version = "0.1.4"
+version = "0.1.5"
 source = { virtual = "." }
 dependencies = [
     { name = "fframes", version = "0.1.1", source = { url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-macosx_15_0_arm64.whl" }, marker = "platform_machine == 'arm64' and sys_platform == 'darwin'" },
@@ -2539,7 +2539,7 @@ requires-dist = [
     { name = "fframes", marker = "platform_machine == 'aarch64' and sys_platform == 'linux'", url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-manylinux_2_35_aarch64.whl" },
     { name = "fframes", marker = "platform_machine == 'x86_64' and sys_platform == 'linux'", url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-manylinux_2_35_x86_64.whl" },
     { name = "fframes", marker = "platform_machine == 'AMD64' and sys_platform == 'win32'", url = "https://github.com/Blockether/fframes-python/releases/download/v0.1.1/fframes-0.1.1-cp310-abi3-win_amd64.whl" },
-    { name = "vis-agent", specifier = ">=0.5.7" },
+    { name = "vis-agent", specifier = ">=0.6.0" },
 ]
 
 [[package]]
